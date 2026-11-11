@@ -1,0 +1,14 @@
+.card {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgray;
+    height: 15rem;
+    width: 13rem;
+    margin: 3rem;
+    padding: 1rem;
+    border-radius: 20px;
+    /* Estilos para el contenedor de la lista */
+    }
