@@ -13,6 +13,31 @@ fetch ('https://www.swapi.tech/api/planets/')
 let planetas = []
 
 
+
+
+let elementos = [];
+
+
+const selectorTipo = document.getElementById("selectorTipo");
+const buscador = document.getElementById("buscador");
+
+
+function cargarElementos() {
+
+
+    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=100") //esto es para que agarre todas las paginas
+    .then(response => response.json())
+    .then(data => {
+        elementos = data.results;
+        buscar();
+    })
+    .catch(error => {
+        console.error("Error al leer la API:", error);
+    });
+}
+
+
+
 function mostrarPlanetasConForEach(lista){
 
     const container = document.getElementById('infoContainer');
@@ -37,3 +62,9 @@ function mostrarPlanetasConForEach(lista){
   
   
   }
+
+
+
+ if(selectorTipo.value === "planets"){
+    console.log("hola")
+ }

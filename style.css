@@ -6,7 +6,6 @@
   body{
   width: 100vw;
   height: 100vh;
-  background-color: rgb(10, 1, 26);
   }
   .parte-arriba{
     display: flex;
@@ -15,7 +14,7 @@
     top: 0px  ;
     width: 100%;
     z-index: 10;
-    height: 5rem;
+    height: 15%;
     background-color: black;
   }
   .espacio-titulo{
@@ -28,7 +27,8 @@
   }
   .titulo-starwars{
     color: #FFE81F;
-    font-size: 3rem;
+    height: 100%;
+    width: auto;
   }
 
   .espacio-buscador-selector{
@@ -47,6 +47,10 @@
     justify-content: center;
     align-items: center;
   }
+  .selector-tipo:hover{
+    background-color: lightgrey;
+    transition: 0.5s;
+  }
 
   .buscador{
     height: 2rem;
@@ -57,23 +61,37 @@
     align-items: center;
     padding: 1rem;
   }
+  .buscador:hover{
+    background-color: lightgray;
+    transition: 0.5s;
+  }
+
   .espacio-imagen{
     width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .imagen-sable{
-    height: 100%;
+    height: 80%;
     width: auto;
   }
+.espacio-info-container{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIiGY_Z-H9iTIEDwHihhtwFxrHxa3DO8QkoqLhK0pFSQ&s=10);
+}
 .info-container{
     width: 100%;
-    height: 100%;
+    height: 85%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .card {
@@ -84,9 +102,9 @@
     flex-direction: column;
     background-color: lightgray;
     height: 20rem;
-    width: 22rem;
-    margin: 3rem;
-    padding: 1rem;
+    width: 21rem;
+    margin: 2rem;
+    padding: 0.5rem;
     border-radius: 20px;
     /* Estilos para el contenedor de la lista */
     }
