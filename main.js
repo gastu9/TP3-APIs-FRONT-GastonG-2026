@@ -8,7 +8,7 @@ const buscador = document.getElementById("buscador");
 
 function cargarElementos() {
 
-    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=10") //esto es para que agarre todas las paginas
+    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=4") //esto es para que agarre todas las paginas
     .then(response => response.json())
     .then(data => {
         elementos = data.results;
@@ -151,6 +151,30 @@ selectorTipo.addEventListener("change", cargarElementos);
 
 cargarElementos();
 
+
+//Buscador
+
+const busqueda = document.getElementById("buscador")
+busqueda.addEventListener("input", buscar)
+
+
+
+
+function buscar (){
+  let elementosFiltradas = elementos.filter( elemento => {
+   return elemento.nombre.toLowerCase().includes(busqueda.value.toLowerCase())
+  })
+  if(selectorTipo.value === "people"){
+    mostrarPersonajesConForEach(elementosFiltradas)
+  }
+  else if(selectorTipo.value === "starships"){
+    mostrarNavesConForEach(elementosFiltradas)
+  }
+  else if(selectorTipo.value === "planets"){
+    console.log("hola")
+    mostrarPlanetasConForEach(elementosFiltradas)
+  }
+}
 
 
 
