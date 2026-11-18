@@ -8,22 +8,12 @@ const buscador = document.getElementById("buscador");
 
 function cargarElementos() {
 
-    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=4") //esto es para que agarre todas las paginas
+    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=10") //esto es para que agarre todas las paginas
     .then(response => response.json())
     .then(data => {
         elementos = data.results;
         console.log(data)
-
-    if(selectorTipo.value === "people"){
-        mostrarPersonajesConForEach(elementos)
-    }
-    else if(selectorTipo.value === "starships"){
-        mostrarNavesConForEach(elementos)
-    }
-    else if(selectorTipo.value === "planets"){
-        console.log("hola")
-        mostrarPlanetasConForEach(elementos)
-    }
+        buscar()
     })
     
     .catch(error => {
@@ -133,7 +123,8 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${infoEspecificaPersonaje.name}</h2>
-        <p class="">Altura: ${infoEspecificaPersonaje.height}cm</p>
+        <p class="altura-persona">Altura: ${infoEspecificaPersonaje.height}cm</p>
+        <p class="masa">masa: ${infoEspecificaPersonaje.mass}</p>
         <p class=""></p>
       </article>  
       </section>
@@ -161,18 +152,19 @@ busqueda.addEventListener("input", buscar)
 
 
 function buscar (){
-  let elementosFiltradas = elementos.filter( elemento => {
-   return elemento.nombre.toLowerCase().includes(busqueda.value.toLowerCase())
+  let elementosFiltrados = elementos.filter( elemento => {
+   return elemento.name.toLowerCase().includes(busqueda.value.toLowerCase())
   })
+  if(elementosFiltrados)
   if(selectorTipo.value === "people"){
-    mostrarPersonajesConForEach(elementosFiltradas)
+    mostrarPersonajesConForEach(elementosFiltrados)
   }
   else if(selectorTipo.value === "starships"){
-    mostrarNavesConForEach(elementosFiltradas)
+    mostrarNavesConForEach(elementosFiltrados)
   }
   else if(selectorTipo.value === "planets"){
     console.log("hola")
-    mostrarPlanetasConForEach(elementosFiltradas)
+    mostrarPlanetasConForEach(elementosFiltrados)
   }
 }
 
