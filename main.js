@@ -12,6 +12,7 @@ function cargarElementos() {
     .then(response => response.json())
     .then(data => {
         elementos = data.results;
+        console.log(data)
 
     if(selectorTipo.value === "people"){
         mostrarPersonajesConForEach(elementos)
@@ -56,9 +57,9 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${infoEspecificaPlaneta.name}</h2>
-        <p class="clima">${infoEspecificaPlaneta.climate}</p>
-        <p class="terreno">${infoEspecificaPlaneta.terrain}</p>
-        <p class="poblacion">${infoEspecificaPlaneta.population}</p>
+        <p class="clima">Clima: ${infoEspecificaPlaneta.climate}</p>
+        <p class="terreno">Terreno: ${infoEspecificaPlaneta.terrain}</p>
+        <p class="poblacion">Poblacion: ${infoEspecificaPlaneta.population}</p>
         <p class=""></p>
         <p class=""></p>
       </article>  
@@ -96,8 +97,8 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${infoEspecificaNave.name}</h2>
-        <p class="constructor">${infoEspecificaNave.manufacturer}</p>
-        <p class="precio">${infoEspecificaNave.cost_in_credits}</p>
+        <p class="constructor">Constructor: ${infoEspecificaNave.manufacturer}</p>
+        <p class="precio">${infoEspecificaNave.cost_in_credits} creditos</p>
         <p class=""></p>
       </article>  
       </section>
@@ -132,7 +133,7 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${infoEspecificaPersonaje.name}</h2>
-        <p class="">${infoEspecificaPersonaje.height}</p>
+        <p class="">Altura: ${infoEspecificaPersonaje.height}cm</p>
         <p class=""></p>
       </article>  
       </section>
