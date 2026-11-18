@@ -39,14 +39,32 @@ function mostrarPlanetasConForEach(lista){
     container.innerHTML = "" ;
   
     lista.forEach( planeta => {
+
+    //desde aca
+
+    let infoEspecificaPlaneta = []
+
+    fetch(planeta.url)
+    .then(response => response.json())
+    .then(data => {
+        infoEspecificaPlaneta = data.results;
+    })
+    
+    .catch(error => {
+        console.error("Error al leer la API:", error);
+    });
+
+    //hasta aca esta lo raro (abajo hay que cambiar lo de infoespecificaplaneta)
+
+
       container.innerHTML +=
       `
       <section class="espacio-card">
       <article class="card">
-        <h2  class="titulo">${planeta.name}</h2>
-        <p class="clima">${planeta.climate}</p>
-        <p class="terreno">${planeta.terrain}</p>
-        <p class="poblacion">${planeta.population}</p>
+        <h2  class="titulo">${infoEspecificaPlaneta.name}</h2>
+        <p class="clima">${infoEspecificaPlaneta.climate}</p>
+        <p class="terreno">${infoEspecificaPlaneta.terrain}</p>
+        <p class="poblacion">${infoEspecificaPlaneta.population}</p>
         <p class=""></p>
         <p class=""></p>
       </article>  
@@ -100,3 +118,17 @@ function mostrarPlanetasConForEach(lista){
 selectorTipo.addEventListener("change", cargarElementos);
 
 cargarElementos();
+
+
+
+
+//Ejemplo de fetch
+//    fetch() //esto es para que agarre todas las paginas
+//    .then(response => response.json())
+//    .then(data => {
+//        xxx = data.results;
+//    })
+    
+//    .catch(error => {
+//        console.error("Error al leer la API:", error);
+//    });
