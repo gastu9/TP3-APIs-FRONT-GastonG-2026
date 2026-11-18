@@ -1,19 +1,3 @@
-fetch ('https://www.swapi.tech/api/planets/')
-.then(response => response.json())
-.then(data => {
-    console.log('cositas cargadas')
-    console.log(data);
-    planetas = data.results;
-    mostrarPlanetasConForEach(planetas)
-})
-.catch(error => {
-    console.error('error al leer la API',error);
-})
-
-let planetas = []
-
-
-
 
 let elementos = [];
 
