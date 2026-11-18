@@ -8,7 +8,7 @@ const buscador = document.getElementById("buscador");
 
 function cargarElementos() {
 
-    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=10") //esto es para que agarre todas las paginas
+    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=10&expanded=true") //esto es para que agarre todas las paginas
     .then(response => response.json())
     .then(data => {
         elementos = data.results;
@@ -31,37 +31,20 @@ function mostrarPlanetasConForEach(lista){
   
     lista.forEach( planeta => {
 
-    //desde aca
-
-
-    fetch(planeta.url)
-    .then(response => response.json())
-    .then(data => {
-
-        const infoEspecificaPlaneta = data.result.properties; // es properties porque cuando pedis el especifico swapi te devuelve la info adentro de propetries que esta adentro de data;
-
-        //Crea la tarjetita
-
+    //Crea la tarjetita
     container.innerHTML +=
       `
       <section class="espacio-card">
       <article class="card">
-        <h2  class="titulo">${infoEspecificaPlaneta.name}</h2>
-        <p class="clima">Clima: ${infoEspecificaPlaneta.climate}</p>
-        <p class="terreno">Terreno: ${infoEspecificaPlaneta.terrain}</p>
-        <p class="poblacion">Poblacion: ${infoEspecificaPlaneta.population}</p>
+        <h2  class="titulo">${planeta.name}</h2>
+        <p class="clima">Clima: ${planeta.climate}</p>
+        <p class="terreno">Terreno: ${planeta.terrain}</p>
+        <p class="poblacion">Poblacion: ${planeta.population}</p>
         <p class=""></p>
         <p class=""></p>
       </article>  
       </section>
       `
-    })
-    
-    .catch(error => {
-        console.error("Error al leer la API:", error);
-    });
-
-    //hasta aca esta lo raro (abajo hay que poner la tarjeta de vuelta y cambiar lo de infoespecificaplaneta)
     })
   }
 
@@ -74,30 +57,19 @@ function mostrarPlanetasConForEach(lista){
   
     lista.forEach( nave => {
 
-    fetch(nave.url)
-    .then(response => response.json())
-    .then(data => {
-
-        const infoEspecificaNave = data.result.properties; // es properties porque cuando pedis el especifico swapi te devuelve la info adentro de propetries que esta adentro de data;
-
         //Crea la tarjetita
 
       container.innerHTML +=
       `
       <section class="espacio-card">
       <article class="card">
-        <h2  class="titulo">${infoEspecificaNave.name}</h2>
-        <p class="constructor">Constructor: ${infoEspecificaNave.manufacturer}</p>
-        <p class="precio">${infoEspecificaNave.cost_in_credits} creditos</p>
+        <h2  class="titulo">${nave.name}</h2>
+        <p class="constructor">Constructor: ${nave.manufacturer}</p>
+        <p class="precio">${nave.cost_in_credits} creditos</p>
         <p class=""></p>
       </article>  
       </section>
       `
-    })
-    
-    .catch(error => {
-        console.error("Error al leer la API:", error);
-    });
 
     })
   }
@@ -111,12 +83,6 @@ function mostrarPlanetasConForEach(lista){
   
     lista.forEach( personaje => {
 
-    fetch(personaje.url)
-    .then(response => response.json())
-    .then(data => {
-
-        const infoEspecificaPersonaje = data.result.properties; // es properties porque cuando pedis el especifico swapi te devuelve la info adentro de propetries que esta adentro de data;
-
       //Crea la tarjetita
       container.innerHTML +=
       `
@@ -129,11 +95,6 @@ function mostrarPlanetasConForEach(lista){
       </article>  
       </section>
       `
-    })
-    
-    .catch(error => {
-        console.error("Error al leer la API:", error);
-    });
 
     })
   }
