@@ -42,22 +42,16 @@ function mostrarPlanetasConForEach(lista){
 
     //desde aca
 
-    let infoEspecificaPlaneta = []
 
     fetch(planeta.url)
     .then(response => response.json())
     .then(data => {
-        infoEspecificaPlaneta = data.results;
-    })
-    
-    .catch(error => {
-        console.error("Error al leer la API:", error);
-    });
+        
+        const infoEspecificaPlaneta = data.results.properties; // es properties porque cuando pedis el especifico swapi te devuelve la info adentro de propetries que esta adentro de data;
 
-    //hasta aca esta lo raro (abajo hay que cambiar lo de infoespecificaplaneta)
+        //Crea la tarjetita
 
-
-      container.innerHTML +=
+    container.innerHTML +=
       `
       <section class="espacio-card">
       <article class="card">
@@ -70,6 +64,13 @@ function mostrarPlanetasConForEach(lista){
       </article>  
       </section>
       `
+    })
+    
+    .catch(error => {
+        console.error("Error al leer la API:", error);
+    });
+
+    //hasta aca esta lo raro (abajo hay que poner la tarjeta de vuelta y cambiar lo de infoespecificaplaneta)
     })
   }
 
