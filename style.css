@@ -100,12 +100,12 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: lightyellow;
     height: 15rem;
     width: 15rem;
     margin: 2rem;
     padding: 0.5rem;
-    border-radius: 20px;
+    border-radius: 10px;
     /* Estilos para el contenedor de la lista */
     }
     .altura-persona{

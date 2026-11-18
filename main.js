@@ -8,10 +8,10 @@ const buscador = document.getElementById("buscador");
 
 function cargarElementos() {
 
-    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=10&expanded=true") //esto es para que agarre todas las paginas
+    fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=1000&expanded=true") //esto es para que agarre todas las paginas
     .then(response => response.json())
     .then(data => {
-        elementos = data.results;
+        elementos = data.results.map(elemento => elemento.properties);
         console.log(data)
         buscar()
     })
@@ -88,9 +88,9 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
-        <h2  class="titulo">${infoEspecificaPersonaje.name}</h2>
-        <p class="altura-persona">Altura: ${infoEspecificaPersonaje.height}cm</p>
-        <p class="masa">masa: ${infoEspecificaPersonaje.mass}</p>
+        <h2  class="titulo">${personaje.name}</h2>
+        <p class="altura-persona">Altura: ${personaje.height}cm</p>
+        <p class="masa">masa: ${personaje.mass}</p>
         <p class=""></p>
       </article>  
       </section>
