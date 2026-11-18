@@ -42,8 +42,8 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
+        <img class="imagen" src="https://starwarsgallery.netlify.app/assets/planets/${planeta.uid}.jpg" alt="Foto planeta">
         <h2  class="titulo">${planeta.name}</h2>
-        <img src="https://starwarsgallery.netlify.app/assets/planets/${planeta.uid}.jpg" alt="Foto planeta">
         <p class="clima">Clima: ${planeta.climate}</p>
         <p class="terreno">Terreno: ${planeta.terrain}</p>
         <p class="poblacion">Poblacion: ${planeta.population}</p>
@@ -70,10 +70,10 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
-        <img src="https://starwarsgallery.netlify.app/assets/starships/${nave.uid}.jpg" alt="Foto planeta">
+        <img class="imagen" src="https://starwarsgallery.netlify.app/assets/starships/${nave.uid}.jpg" alt="Foto planeta">
         <h2  class="titulo">${nave.name}</h2>
-        <p class="constructor">Constructor: ${nave.manufacturer}</p>
-        <p class="precio">${nave.cost_in_credits} creditos</p>
+        <p class="nave-constructor">Constructor: ${nave.manufacturer}</p>
+        <p class="nave-precio">${nave.cost_in_credits} creditos</p>
         <p class=""></p>
       </article>  
       </section>
@@ -96,10 +96,10 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
-        <img src="https://starwarsgallery.netlify.app/assets/people/${personaje.uid}.jpg" alt="a">
+        <img class="imagen" src="https://starwarsgallery.netlify.app/assets/people/${personaje.uid}.jpg" alt="foto persona">
         <h2  class="titulo">${personaje.name}</h2>
         <p class="altura-persona">Altura: ${personaje.height}cm</p>
-        <p class="masa">masa: ${personaje.mass}</p>
+        <p class="masa-persona">Masa: ${personaje.mass}Kg</p>
         <p class=""></p>
       </article>  
       </section>
