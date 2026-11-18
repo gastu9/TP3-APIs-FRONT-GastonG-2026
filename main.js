@@ -11,7 +11,13 @@ function cargarElementos() {
     fetch("https://www.swapi.tech/api/" + selectorTipo.value + "/?page=1&limit=1000&expanded=true") //esto es para que agarre todas las paginas
     .then(response => response.json())
     .then(data => {
-        elementos = data.results.map(elemento => elemento.properties);
+
+        elementos = data.results.map(elemento => { //esto aca recorre los objetos de la api
+          elemento.properties.uid = elemento.uid; //agrega el uid de la cosa al array de elementos
+          return elemento.properties;
+      });
+
+
         console.log(data)
         buscar()
     })
@@ -37,7 +43,7 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${planeta.name}</h2>
-        <img src="https://starwarsgallery.netlify.app/assets/starships/${planeta.uid}.jpg" alt="Foto planeta">
+        <img src="https://starwarsgallery.netlify.app/assets/planets/${planeta.uid}.jpg" alt="Foto planeta">
         <p class="clima">Clima: ${planeta.climate}</p>
         <p class="terreno">Terreno: ${planeta.terrain}</p>
         <p class="poblacion">Poblacion: ${planeta.population}</p>
@@ -64,6 +70,7 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
+        <img src="https://starwarsgallery.netlify.app/assets/starships/${nave.uid}.jpg" alt="Foto planeta">
         <h2  class="titulo">${nave.name}</h2>
         <p class="constructor">Constructor: ${nave.manufacturer}</p>
         <p class="precio">${nave.cost_in_credits} creditos</p>
