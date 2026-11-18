@@ -37,6 +37,7 @@ function mostrarPlanetasConForEach(lista){
       <section class="espacio-card">
       <article class="card">
         <h2  class="titulo">${planeta.name}</h2>
+        <img src="https://starwarsgallery.netlify.app/assets/starships/${planeta.uid}.jpg" alt="Foto planeta">
         <p class="clima">Clima: ${planeta.climate}</p>
         <p class="terreno">Terreno: ${planeta.terrain}</p>
         <p class="poblacion">Poblacion: ${planeta.population}</p>
@@ -88,6 +89,7 @@ function mostrarPlanetasConForEach(lista){
       `
       <section class="espacio-card">
       <article class="card">
+        <img src="https://starwarsgallery.netlify.app/assets/people/${personaje.uid}.jpg" alt="a">
         <h2  class="titulo">${personaje.name}</h2>
         <p class="altura-persona">Altura: ${personaje.height}cm</p>
         <p class="masa">masa: ${personaje.mass}</p>
@@ -116,7 +118,6 @@ function buscar (){
   let elementosFiltrados = elementos.filter( elemento => {
    return elemento.name.toLowerCase().includes(busqueda.value.toLowerCase())
   })
-  if(elementosFiltrados)
   if(selectorTipo.value === "people"){
     mostrarPersonajesConForEach(elementosFiltrados)
   }
