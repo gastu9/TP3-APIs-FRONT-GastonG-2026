@@ -153,5 +153,9 @@ function buscar (){
 //    })
     
 //    .catch(error => {
-//        console.error("Error al leer la API:", error);
+//        console.error("Error en el fetch:", error);
 //    });
+
+//esto es para darle mas parametros al buscaodr
+// || elemento.provincia.toLowerCase().includes(busqueda.value.toLowerCase())
+// || elemento.categoria.toLowerCase().includes(busqueda.value.toLowerCase())

@@ -119,8 +119,8 @@
     .imagen{
       height: 100%;
       width: 100%;
-      object-fit: cover;          /* Recorta sin estirar ni aplastar */
-      object-position: center;    /* Centra el encuadre (usa top, left, etc.) */
+      object-fit: cover;          /* Esto hace que se ecorte sin estirar ni aplastar */
+      object-position: center;    /* Esto centra la imagen en su espacio*/
     }
     
     .titulo{
