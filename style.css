@@ -110,11 +110,17 @@
     }
 
 
-
-    .imagen{
+    .espacio-imagen-tarjeta{
+      width: 50%;
       height: 50%;
-      width: auto;
-      background-color: rebeccapurple;
+      background: none;
+
+    }
+    .imagen{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;          /* Recorta sin estirar ni aplastar */
+      object-position: center;    /* Centra el encuadre (usa top, left, etc.) */
     }
     
     .titulo{
